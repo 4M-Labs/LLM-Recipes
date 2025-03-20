@@ -1,73 +1,187 @@
-# LLM Prompting Techniques
+# LLM Prompting Techniques 🧠
 
-This directory contains a collection of advanced prompting techniques for Large Language Models (LLMs). Each technique is documented with explanations, examples, and best practices to help you get the most out of your interactions with LLMs.
+A comprehensive collection of advanced prompting techniques for Large Language Models (LLMs). This directory contains detailed guides, code examples, and best practices to help you get the most out of your interactions with LLMs.
 
-## Techniques Overview
+## Prompting Techniques Overview
 
-### Basic Techniques
+### Fundamental Techniques
 
-- [Zero-Shot Prompting](./zero-shot-prompting.md) - Getting LLMs to perform tasks without examples
-- [Few-Shot Prompting](./few-shot-prompting.md) - Providing examples to guide LLM responses
-- [Chain-of-Thought (CoT)](./chain-of-thought.md) - Encouraging step-by-step reasoning
-- [System Prompts](./system-prompts.md) - Setting the behavior and context for the LLM
-- [Structured Output](./structured-output.md) - Getting responses in specific formats (JSON, XML, etc.)
-- [Role Prompting](./role-prompting.md) - Assigning specific roles to guide LLM behavior
+| Technique | Description | Best For | Example |
+|-----------|-------------|----------|---------|
+| [**Zero-Shot Prompting**](./zero-shot-prompting.md) | Making LLMs perform tasks without examples | Simple tasks; testing baseline capabilities | `Summarize this article in 3 bullet points: [article]` |
+| [**Few-Shot Prompting**](./few-shot-prompting.md) | Providing examples to guide model responses | Consistent formatting; specific patterns | `Example 1: [input] → [output] ... Your turn: [input]` |
+| [**Chain-of-Thought**](./chain-of-thought.md) | Encouraging step-by-step reasoning | Complex problem-solving; logical reasoning | `Let's think through this step by step...` |
+| [**Role Prompting**](./role-prompting.md) | Assigning specific personas to guide behavior | Specialized knowledge; consistent tone | `You are an expert physicist explaining...` |
 
-### Advanced Techniques
+### Advanced Reasoning Techniques
 
-- [Self-Consistency](./self-consistency.md) - Generating multiple reasoning paths and selecting the most consistent answer
-- [ReAct Prompting](./react-prompting.md) - Combining reasoning and acting for complex problem-solving
-- [Tree of Thoughts (ToT)](./tree-of-thoughts.md) - Exploring multiple reasoning paths simultaneously
-- [Automatic Reasoning and Tool-use (ART)](./art-prompting.md) - Systematic task decomposition and tool use
-- [Multimodal Prompting](./multimodal-prompting.md) - Working with multiple types of media (text, images, etc.)
-- [Automatic Prompt Engineering (APE)](./automatic-prompt-engineering.md) - Using LLMs to generate and optimize prompts
-- [Directional Stimulus Prompting](./directional-stimulus-prompting.md) - Guiding responses in specific directions
-- [Prompt Chaining](./prompt-chaining.md) - Breaking complex tasks into sequences of simpler prompts
-- [Retrieval-Augmented Generation (RAG)](./retrieval-augmented-generation.md) - Enhancing responses with retrieved information
-- [Agent Prompting](./agent-prompting.md) - Creating autonomous agents that can perform tasks
+| Technique | Description | Best For | Example |
+|-----------|-------------|----------|---------|
+| [**Tree of Thoughts**](./tree-of-thoughts.md) | Exploring multiple reasoning paths | Complex problems with multiple approaches | Generating alternative solutions and evaluating each branch |
+| [**Self-Consistency**](./self-consistency.md) | Multiple reasoning paths with voting | Improving accuracy on ambiguous problems | Solving the same problem multiple ways and taking the most common answer |
+| [**ReAct Prompting**](./react-prompting.md) | Reasoning and Acting cycles | Tasks requiring tool use and reasoning | Thought → Action → Observation loops |
+| [**Automatic Reasoning and Tool-use**](./art-prompting.md) | Systematic decomposition and tool integration | Complex workflows with external tools | Breaking down tasks and selecting appropriate tools |
 
-## How to Use This Repository
+### Specialized Techniques
 
-Each technique is documented in its own markdown file with the following structure:
+| Technique | Description | Best For | Example |
+|-----------|-------------|----------|---------|
+| [**Structured Output**](./structured-output.md) | Getting responses in specific formats | API integration; data extraction | JSON, XML, or custom structured formats |
+| [**System Prompts**](./system-prompts.md) | Setting overall behavior and context | Consistent persona; global constraints | Setting the model's role and behavioral guidelines |
+| [**Prompt Chaining**](./prompt-chaining.md) | Breaking complex tasks into sequences | Multi-stage workflows; complex generation | Using output from one prompt as input to another |
+| [**Retrieval-Augmented Generation**](./retrieval-augmented-generation.md) | Enhancing responses with external info | Knowledge-intensive tasks; factual accuracy | Retrieving relevant information to include in context |
 
-1. **Definition** - What the technique is and how it works
-2. **Examples** - Code samples demonstrating implementation
-3. **Advanced Patterns** - More sophisticated applications of the technique
-4. **Best Practices** - Tips for effective use
-5. **When to Use** - Scenarios where the technique is most effective
+### Optimization Techniques
 
-## Choosing the Right Technique
+| Technique | Description | Best For | Example |
+|-----------|-------------|----------|---------|
+| [**Automatic Prompt Engineering**](./automatic-prompt-engineering.md) | Using LLMs to generate and optimize prompts | Prompt optimization; discovering effective techniques | Meta-prompting to create better prompts |
+| [**Directional Stimulus Prompting**](./directional-stimulus-prompting.md) | Guiding responses in specific directions | Controlling response characteristics | Steering generation toward specific tones or styles |
+| [**Multimodal Prompting**](./multimodal-prompting.md) | Working with multiple types of media | Vision-language tasks; mixed-media analysis | Combining image and text prompts |
+| [**Agent Prompting**](./agent-prompting.md) | Creating autonomous task-performing systems | Complex, multi-step objectives | Self-directed task completion systems |
 
-The effectiveness of each technique depends on your specific use case:
+## Selecting the Right Technique
 
-- For complex reasoning tasks, consider **Chain-of-Thought**, **Tree of Thoughts**, or **Self-Consistency**
-- For tasks requiring external information, use **ReAct**, **ART**, or **RAG**
-- For consistent, structured outputs, use **Structured Output** or **System Prompts**
-- For creative or diverse responses, try **Directional Stimulus Prompting**
-- For optimizing prompts automatically, use **APE**
-- For autonomous task completion, use **Agent Prompting**
+Choosing the appropriate prompting technique depends on your specific use case:
 
-## Combining Techniques
+```mermaid
+graph TD
+    A[Task Type] --> B{Requires<br>Reasoning?}
+    B -->|Yes| C{Multi-Step<br>Reasoning?}
+    B -->|No| D{Need<br>Formatting?}
+    
+    C -->|Simple| E[Chain-of-Thought]
+    C -->|Complex| F{Multiple<br>Approaches?}
+    F -->|Yes| G[Tree of Thoughts]
+    F -->|No| H[Self-Consistency]
+    
+    D -->|Yes| I[Structured Output]
+    D -->|No| J{Have<br>Examples?}
+    J -->|Yes| K[Few-Shot]
+    J -->|No| L[Zero-Shot]
+    
+    A --> M{Requires<br>Tools?}
+    M -->|Yes| N[ReAct]
+    
+    A --> O{Specialized<br>Knowledge?}
+    O -->|Yes| P[Role Prompting]
+```
 
-Many of these techniques can be combined for even more powerful results. Common combinations include:
+## Combining Techniques for Better Results
 
-- **Few-Shot** + **Chain-of-Thought** for guided reasoning
-- **ReAct** + **Structured Output** for tool use with formatted results
-- **System Prompts** + **Role Prompting** for consistent persona-based responses
-- **RAG** + **Self-Consistency** for factual accuracy with consistent reasoning
-- **Agent Prompting** + **Tree of Thoughts** for agents that explore multiple solution paths
+Many of these techniques can be combined to create even more powerful prompting strategies:
 
-## Resources
+- **Zero-Shot CoT**: Zero-shot prompting with "Let's think step by step"
+- **Few-Shot CoT**: Providing examples of step-by-step reasoning
+- **Role + CoT**: Assigning an expert role and requesting step-by-step thinking
+- **ReAct + Structured Output**: Combining tool use with structured response formats
+- **RAG + CoT**: Retrieving information and reasoning through it methodically
+- **Agent + ToT**: Creating agents that explore multiple solution paths
 
-- [Together AI Cookbook](https://github.com/togethercomputer/cookbook) - Source for many of these techniques
+## Implementation Best Practices
+
+1. **Start Simple**
+   - Begin with the simplest technique that might work (usually zero-shot)
+   - Only add complexity when needed
+
+2. **Iteration is Key**
+   - Test different prompting approaches
+   - Refine based on response quality
+   - A/B test variations for critical applications
+
+3. **Consider Model Capabilities**
+   - Larger models (>70B parameters) typically handle advanced techniques better
+   - Smaller models may need more explicit instructions and examples
+
+4. **Manage Token Usage**
+   - Complex techniques use more tokens
+   - Consider cost vs. performance tradeoffs
+   - Use truncation and summarization for long contexts
+
+5. **Evaluate Systematically**
+   - Define clear metrics for success
+   - Compare different techniques on the same tasks
+   - Test on diverse inputs to ensure robustness
+
+## Common Patterns and Anti-Patterns
+
+### Effective Patterns
+- Explicit, clear instructions
+- Breaking complex tasks into steps
+- Providing context and constraints
+- Consistent formatting
+- Using delimiters to separate sections
+
+### Anti-Patterns to Avoid
+- Vague or ambiguous instructions
+- Contradictory guidance
+- Excessive examples that consume context
+- Overly complex prompt structures
+- Assuming capabilities the model doesn't have
+
+## Code Examples
+
+Each technique documentation includes implementation examples in JavaScript and Python. For example:
+
+```javascript
+// Chain-of-Thought example
+import { generateText } from 'ai';
+
+const response = await generateText({
+  model: "claude-3-opus-20240229",
+  prompt: `Solve this step by step:
+  
+  If a shirt normally costs $25 and is on sale for 20% off, 
+  then I buy 3 of these shirts using a $10 coupon, 
+  how much do I pay in total?`,
+  temperature: 0.2,
+});
+
+console.log(response.text);
+```
+
+```python
+# Few-Shot example
+from openai import OpenAI
+
+client = OpenAI()
+
+response = client.chat.completions.create(
+    model="gpt-4",
+    messages=[
+        {"role": "system", "content": "You translate English to French."},
+        {"role": "user", "content": "English: Hello\nFrench: Bonjour"},
+        {"role": "user", "content": "English: How are you?\nFrench: Comment allez-vous?"},
+        {"role": "user", "content": "English: Where is the library?\nFrench:"}
+    ],
+    temperature=0.1,
+)
+
+print(response.choices[0].message.content)
+```
+
+## Further Resources
+
 - [Anthropic Claude Documentation](https://docs.anthropic.com/claude/docs/introduction-to-prompting)
 - [OpenAI Cookbook](https://github.com/openai/openai-cookbook)
 - [Prompt Engineering Guide](https://www.promptingguide.ai/)
+- [LangChain Documentation](https://js.langchain.com/docs/)
+
+## Research Papers
+
+- [Chain-of-Thought Prompting Elicits Reasoning in Large Language Models](https://arxiv.org/abs/2201.11903) (Wei et al., 2022)
+- [Tree of Thoughts: Deliberate Problem Solving with Large Language Models](https://arxiv.org/abs/2305.10601) (Yao et al., 2023)
+- [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) (Yao et al., 2022)
+- [Large Language Models are Zero-Shot Reasoners](https://arxiv.org/abs/2205.11916) (Kojima et al., 2022)
+- [Least-to-Most Prompting Enables Complex Reasoning in Large Language Models](https://arxiv.org/abs/2205.10625) (Zhou et al., 2022)
+- [Self-Consistency Improves Chain of Thought Reasoning in Language Models](https://arxiv.org/abs/2203.11171) (Wang et al., 2022)
 
 ## Contributing
 
-Feel free to suggest improvements or additional techniques by opening an issue or pull request.
+We welcome contributions! Feel free to:
+- Suggest improvements to existing techniques
+- Add new prompting techniques as they emerge
+- Contribute code examples in different languages
+- Share performance benchmarks
 
-## License
-
-This collection is provided under the MIT License. 
+Please see our [Contributing Guidelines](../CONTRIBUTING.md) for more details.
