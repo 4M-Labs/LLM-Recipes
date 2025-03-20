@@ -2,9 +2,9 @@
 
 Explore common architectural patterns for building robust and scalable LLM-powered applications.
 
-## Self-Attention Pattern
+## Transformer Architecture (Foundation)
 
-The Self-Attention pattern is a fundamental architecture where the model processes input by relating different positions of a sequence to compute a representation of the sequence.
+The foundational architecture using self-attention mechanisms that revolutionized NLP.
 
 ```mermaid
 graph LR
@@ -16,14 +16,9 @@ graph LR
     style C fill:#4285f4,stroke:#4285f4,color:white
 ```
 
-### Key Components:
-- Input: Initial sequence or tokens
-- Self-Attention: Mechanism to weigh importance of different parts
-- Output: Contextualized representation
+## Decoder-only Models (GPT-style)
 
-## Decoder Pattern
-
-The Decoder pattern processes input sequentially to generate output, commonly used in text generation tasks.
+GPT-style architectures focused on text generation (GPT-4, Claude, Llama).
 
 ```mermaid
 graph LR
@@ -35,29 +30,76 @@ graph LR
     style C fill:#34A853,stroke:#34A853,color:white
 ```
 
-### Key Components:
-- Input: Prompt or context
-- Decoder: Sequential processing unit
-- Output: Generated text or completion
+## Encoder-only Models (BERT-style)
 
-## Implementation Considerations
+BERT-style architectures focused on understanding (good for embeddings).
 
-1. **Model Selection**
-   - Choose appropriate model size
-   - Consider computational requirements
-   - Balance quality vs performance
+```mermaid
+graph LR
+    A[Input] --> B[Encoder]
+    B --> C[Embeddings]
+    
+    style A fill:#9334EA,stroke:#9334EA,color:white
+    style B fill:#9334EA,stroke:#9334EA,color:white
+    style C fill:#9334EA,stroke:#9334EA,color:white
+```
 
-2. **Optimization**
-   - Implement caching mechanisms
-   - Use batching where possible
-   - Consider quantization
+## Encoder-Decoder Models (T5-style)
 
-3. **Scalability**
-   - Design for horizontal scaling
-   - Implement proper load balancing
-   - Monitor resource usage
+T5-style architectures for translation and summarization tasks.
 
-4. **Maintenance**
-   - Regular model updates
-   - Performance monitoring
-   - Error handling and logging
+```mermaid
+graph LR
+    A[Input] --> B[Encoder]
+    B --> C[Decoder]
+    C --> D[Output]
+    
+    style A fill:#EA580C,stroke:#EA580C,color:white
+    style B fill:#EA580C,stroke:#EA580C,color:white
+    style C fill:#EA580C,stroke:#EA580C,color:white
+    style D fill:#EA580C,stroke:#EA580C,color:white
+```
+
+## Mixture of Experts (Mixtral)
+
+Models like Mixtral with specialized subnetworks activated based on input.
+
+```mermaid
+graph TD
+    A[Input] --> B[Router]
+    B --> C[Expert 1]
+    B --> D[Expert 2]
+    B --> E[Expert 3]
+    C --> F[Output]
+    D --> F
+    E --> F
+    
+    style A fill:#DC2626,stroke:#DC2626,color:white
+    style B fill:#DC2626,stroke:#DC2626,color:white
+    style C fill:#DC2626,stroke:#DC2626,color:white
+    style D fill:#DC2626,stroke:#DC2626,color:white
+    style E fill:#DC2626,stroke:#DC2626,color:white
+    style F fill:#DC2626,stroke:#DC2626,color:white
+```
+
+## Sparse Attention Mechanisms (Efficiency)
+
+Alternate attention patterns to reduce computational complexity.
+
+```mermaid
+graph LR
+    A[Input] --> B[Sparse Attention]
+    B --> C[Output]
+    
+    style A fill:#0D9488,stroke:#0D9488,color:white
+    style B fill:#0D9488,stroke:#0D9488,color:white
+    style C fill:#0D9488,stroke:#0D9488,color:white
+```
+
+Each pattern is optimized for specific use cases:
+- **Transformer**: General-purpose foundation for NLP tasks
+- **Decoder-only**: Text generation and completion
+- **Encoder-only**: Understanding and embeddings
+- **Encoder-Decoder**: Translation and summarization
+- **Mixture of Experts**: Specialized task handling
+- **Sparse Attention**: Efficient processing of long sequences
