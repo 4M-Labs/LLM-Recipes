@@ -1,112 +1,133 @@
-# LLM Design Patterns and Recipes
+# LLM Design Patterns and Recipes 🚀
 
-A collection of proven patterns and techniques to build more effective LLM applications. This repository provides ready-to-use code examples and best practices inspired by research and real-world implementations.
+A comprehensive collection of Large Language Model (LLM) design patterns, architectures, and implementation recipes. This repository provides production-ready code, best practices, and detailed examples for building robust LLM applications.
 
-## 🌟 Key Features
-
-- **Agent Recipes**: Production-ready implementations of various LLM agent patterns
-- **Prompting Techniques**: Advanced prompting strategies with code examples
-- **Architecture Patterns**: Scalable design patterns for LLM applications
-
-## 📚 Contents
-
-### Agent Recipes
-
-Our agent recipes provide battle-tested patterns for building reliable LLM-powered applications:
-
-- **[Autonomous Agent](agents/autonomous-agent/)**: Self-directed agents that can plan and execute tasks
-- **[Evaluator-Optimizer](agents/evaluator-optimizer/)**: Agents that evaluate and improve their own outputs
-- **[Orchestrator-Workers](agents/orchestrator-workers/)**: Coordinated multi-agent systems for complex tasks
-- **[Parallelization](agents/parallelization/)**: Techniques for running multiple agents in parallel
-- **[Prompt Chaining](agents/prompt-chaining/)**: Methods for breaking down complex tasks into subtasks
-- **[Routing](agents/routing/)**: Smart routing of requests to specialized agents
-
-### Prompting Techniques
-
-Advanced techniques to improve your LLM's performance:
-
-- **Chain of Thought**: Break down complex reasoning tasks into step-by-step thinking
-  - Step-by-step reasoning
-  - Transparent decision-making
-  - Improved accuracy on complex tasks
-
-- **Tree of Thoughts**: Explore multiple reasoning paths simultaneously
-  - Parallel exploration of solutions
-  - Dynamic path evaluation
-  - Better handling of complex problems
+## 🌟 Core Components
 
 ### Architecture Patterns
 
-Scalable patterns for building robust LLM applications:
+Explore fundamental LLM architectures with detailed implementations:
 
-- **Modular Design**
-  - Separation of concerns
-  - Reusable components
-  - Easy maintenance and testing
+- **[Transformer Architecture](architecture/transformer-architecture.md)** - The foundational architecture
+  - Self-attention mechanisms
+  - Multi-head attention
+  - [Implementation](architecture/transformer_implementation.py)
 
-- **Scalable Processing**
-  - Efficient resource utilization
-  - Parallel execution
-  - Load balancing
+- **[Decoder-only Models](architecture/decoder-only-models.md)** - GPT-style architectures
+  - Causal attention
+  - Text generation focus
+  - Used in: GPT-4, Claude, Llama
+  - [Implementation](architecture/decoder_only_implementation.py)
 
-- **Monitoring & Evaluation**
-  - Performance tracking
-  - Quality assurance
-  - Continuous improvement
+- **[Encoder-only Models](architecture/encoder-only-models.md)** - BERT-style architectures
+  - Bidirectional attention
+  - Understanding and embeddings
+  - [Implementation](architecture/encoder_only_implementation.py)
+
+- **[Encoder-Decoder Models](architecture/encoder-decoder-models.md)** - T5-style architectures
+  - Translation and summarization
+  - Cross-attention mechanism
+  - [Implementation](architecture/encoder_decoder_implementation.py)
+
+- **[Mixture of Experts](architecture/mixture-of-experts.md)** - Mixtral-style architectures
+  - Specialized subnetworks
+  - Dynamic routing
+  - [Implementation](architecture/mixture_of_experts_implementation.py)
+
+- **[Sparse Attention](architecture/sparse-attention-mechanisms.md)** - Efficient attention patterns
+  - Reduced computational complexity
+  - LSH attention variant
+  - [Implementation](architecture/sparse_attention_implementation.py)
+
+### Agent Patterns
+
+Production-ready agent implementations:
+
+- **[Autonomous Agent](agents/autonomous-agent/)** - Self-directed task execution
+- **[Evaluator-Optimizer](agents/evaluator-optimizer/)** - Self-improving systems
+- **[Orchestrator-Workers](agents/orchestrator-workers/)** - Coordinated multi-agent systems
+- **[Parallelization](agents/parallelization/)** - Concurrent processing
+- **[Prompt Chaining](agents/prompt-chaining/)** - Sequential task decomposition
+- **[Routing](agents/routing/)** - Intelligent task distribution
+
+### Prompting Techniques
+
+Advanced strategies for optimal LLM interaction:
+
+- **[Chain of Thought](prompting-techniques/chain-of-thought.md)** - Step-by-step reasoning
+- **[Few-Shot Prompting](prompting-techniques/few-shot-prompting.md)** - Learning from examples
+- **[ReAct Prompting](prompting-techniques/react-prompting.md)** - Reasoning and acting
+- **[Role Prompting](prompting-techniques/role-prompting.md)** - Persona-based interactions
+- **[Self-Consistency](prompting-techniques/self-consistency.md)** - Multiple reasoning paths
+- **[Tree of Thoughts](prompting-techniques/tree-of-thoughts.md)** - Branching reasoning paths
+- **[Zero-Shot Prompting](prompting-techniques/zero-shot-prompting.md)** - No-example inference
 
 ## 🚀 Getting Started
 
-1. **Installation**: Clone this repository and install dependencies
+1. Clone the repository:
 ```bash
 git clone https://github.com/4M-Labs/LLM-Recipes.git
 cd LLM-Recipes
-# Install dependencies for specific examples as needed
 ```
 
-2. **Documentation**: Explore our comprehensive guides
+2. Install dependencies (for specific examples):
+```bash
+# For Python implementations
+pip install torch transformers
+
+# For JavaScript implementations
+npm install
+```
+
+3. Explore the documentation:
 - [Getting Started Guide](docs/setup/getting-started.md)
 - [Troubleshooting](docs/troubleshooting.md)
 
-3. **Examples**: Try out our example implementations
-- Each pattern includes working code examples
-- Detailed explanations and best practices
-- Production-ready implementations
+## 📚 Documentation Structure
 
-## 📖 Documentation
+- **/architecture** - LLM architecture patterns and implementations
+- **/agents** - Agent patterns and example implementations
+- **/prompting-techniques** - Advanced prompting strategies
+- **/docs** - Detailed guides and documentation
+  - **/setup** - Setup and installation guides
+  - **/patterns** - In-depth pattern documentation
 
-### Agent Patterns
-- [Orchestrator-Workers Pattern](docs/patterns/orchestrator-workers.md)
-- [Parallelization Pattern](docs/patterns/parallelization.md)
-- [Prompt Chaining Pattern](docs/patterns/prompt-chaining.md)
-- [Routing Pattern](docs/patterns/routing.md)
+## 🛠️ Implementation Details
 
-### Prompting Techniques
-- [Chain of Thought](prompting-techniques/chain-of-thought.md)
-- [Tree of Thoughts](prompting-techniques/tree-of-thoughts.md)
+Each pattern includes:
+- Detailed explanation and theory
+- Python and/or JavaScript implementation
+- Usage examples and test cases
+- Best practices and considerations
+- Performance optimization tips
 
-## 🛠️ Best Practices
+## 🔧 Best Practices
 
-1. **Agent Design**
-   - Clear separation of concerns
-   - Robust error handling
-   - Efficient resource utilization
+### Architecture Design
+- Choose appropriate model size and architecture
+- Consider computational requirements
+- Balance quality vs. performance
+- Implement proper caching and optimization
 
-2. **Prompt Engineering**
-   - Consistent formatting
-   - Clear instructions
-   - Effective context management
+### Agent Development
+- Clear separation of concerns
+- Robust error handling
+- Efficient resource utilization
+- Comprehensive logging
 
-3. **System Architecture**
-   - Scalable design
-   - Monitoring and logging
-   - Security considerations
+### Prompt Engineering
+- Consistent formatting
+- Clear instructions
+- Effective context management
+- Regular evaluation and refinement
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on:
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for:
 - Code style and standards
 - Pull request process
 - Development workflow
+- Testing requirements
 
 ## 📄 License
 
@@ -115,13 +136,14 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Research papers and publications that inspired these patterns
-- Community contributors and feedback
-- Open source projects that made this possible
+- Open source projects and contributors
+- Community feedback and suggestions
 
-## 📬 Contact
+## 📬 Contact & Support
 
 - GitHub Issues: For bug reports and feature requests
 - Discussions: For questions and community interaction
+- [Documentation](docs/): For detailed guides and references
 
 ---
 
