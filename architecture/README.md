@@ -1,55 +1,63 @@
-# LLM Architecture Patterns
+# LLM Architecture
 
-This directory contains architectural patterns and best practices for building scalable and maintainable LLM applications.
+Explore common architectural patterns for building robust and scalable LLM-powered applications.
 
-## Core Patterns
+## Self-Attention Pattern
 
-### 1. Modular Design
-- [Modular Design Pattern](modular-design.md)
-  - Component-based architecture
-  - Service isolation
-  - Interface definitions
-  - State management
+The Self-Attention pattern is a fundamental architecture where the model processes input by relating different positions of a sequence to compute a representation of the sequence.
 
-### 2. Scalable Processing
-- [Scalable Processing Pattern](scalable-processing.md)
-  - Queue-based processing
-  - Load balancing
-  - Caching strategies
-  - Rate limiting
-  - Batch processing
+```mermaid
+graph LR
+    A[Input] --> B[Self-Attention]
+    B --> C[Output]
+    
+    style A fill:#4285f4,stroke:#4285f4,color:white
+    style B fill:#4285f4,stroke:#4285f4,color:white
+    style C fill:#4285f4,stroke:#4285f4,color:white
+```
 
-### 3. Monitoring & Evaluation
-- [Monitoring Pattern](monitoring.md)
-  - Performance metrics
-  - Quality assurance
-  - Error tracking
-  - Cost optimization
-  - Usage analytics
+### Key Components:
+- Input: Initial sequence or tokens
+- Self-Attention: Mechanism to weigh importance of different parts
+- Output: Contextualized representation
 
-## Implementation Guidelines
+## Decoder Pattern
 
-Each pattern documentation includes:
-- Architecture diagrams
-- Component interactions
-- Implementation examples
-- Best practices
-- Common pitfalls
-- Performance considerations
-- Scaling strategies
+The Decoder pattern processes input sequentially to generate output, commonly used in text generation tasks.
 
-## Getting Started
+```mermaid
+graph LR
+    A[Input] --> B[Decoder]
+    B --> C[Output]
+    
+    style A fill:#34A853,stroke:#34A853,color:white
+    style B fill:#34A853,stroke:#34A853,color:white
+    style C fill:#34A853,stroke:#34A853,color:white
+```
 
-1. Review the pattern documentation
-2. Choose patterns that match your requirements
-3. Follow implementation guidelines
-4. Monitor and optimize performance
+### Key Components:
+- Input: Prompt or context
+- Decoder: Sequential processing unit
+- Output: Generated text or completion
 
-## Best Practices
+## Implementation Considerations
 
-- Start with simple implementations
-- Add complexity only when needed
-- Focus on maintainability
-- Plan for scale from the start
-- Implement comprehensive monitoring
-- Document architectural decisions
+1. **Model Selection**
+   - Choose appropriate model size
+   - Consider computational requirements
+   - Balance quality vs performance
+
+2. **Optimization**
+   - Implement caching mechanisms
+   - Use batching where possible
+   - Consider quantization
+
+3. **Scalability**
+   - Design for horizontal scaling
+   - Implement proper load balancing
+   - Monitor resource usage
+
+4. **Maintenance**
+   - Regular model updates
+   - Performance monitoring
+   - Error handling and logging
